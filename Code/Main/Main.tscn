@@ -1,6 +1,54 @@
 [gd_scene format=3 uid="uid://cib786y4fr7cb"]
 
-[ext_resource type="Script" uid="uid://ckplnjj5kkyta" path="res://Main/Main.gd" id="1_lxy7q"]
+[ext_resource type="Script" uid="uid://ckplnjj5kkyta" path="res://Main/Main.gd" id="1_83ytx"]
+[ext_resource type="PackedScene" uid="uid://b3x2ya4csyglj" path="res://Animal/Animal.tscn" id="2_83ytx"]
+[ext_resource type="PackedScene" uid="uid://berl535au27hs" path="res://Lane/Lane.tscn" id="3_amygn"]
+[ext_resource type="PackedScene" uid="uid://d10bdq3u7df63" path="res://Vehicle/Vehicle.tscn" id="4_ps1la"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_83ytx"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_amygn"]
+sky_material = SubResource("ProceduralSkyMaterial_83ytx")
+
+[sub_resource type="Environment" id="Environment_ps1la"]
+background_mode = 2
+sky = SubResource("Sky_amygn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oeayj"]
+albedo_color = Color(0.1882353, 0.40392157, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_83ytx"]
+size = Vector2(50, 50)
 
 [node name="Main" type="Node" unique_id=1391425956]
-script = ExtResource("1_lxy7q")
+script = ExtResource("1_83ytx")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1088615171]
+transform = Transform3D(-0.93027025, -0.36669227, -0.01158403, 0.21882948, -0.57994324, 0.78471625, -0.29446748, 0.7274631, 0.619747, -6.3133135, 7.9893856, 12.333778)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1487217783]
+environment = SubResource("Environment_ps1la")
+
+[node name="Animal" parent="." unique_id=1343002232 instance=ExtResource("2_83ytx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.7231884)
+
+[node name="Rig" type="Node3D" parent="Animal" unique_id=694377179]
+transform = Transform3D(0.9889211, 0.12832525, 0.07461647, -0.14812674, 0.8858243, 0.43974286, -0.009667002, -0.44592366, 0.8950187, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Animal/Rig" unique_id=634820231]
+transform = Transform3D(0.9856827, -0.02481138, -0.16677499, 0.09602214, 0.8956511, 0.43426815, 0.13859743, -0.44406474, 0.88521034, -2.8292708, 8.166017, 14.809864)
+fov = 35.059807
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=1301064270]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13494873, -0.0656991, -0.4150648)
+material_override = SubResource("StandardMaterial3D_oeayj")
+mesh = SubResource("PlaneMesh_83ytx")
+skeleton = NodePath("")
+
+[node name="Lane" parent="." unique_id=434455322 instance=ExtResource("3_amygn")]
+
+[node name="Vehicle" parent="Lane" unique_id=1593780182 instance=ExtResource("4_ps1la")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)

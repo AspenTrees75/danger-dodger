@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b3x2ya4csyglj"]
+
+[ext_resource type="Script" uid="uid://cld86snfb212r" path="res://Animal/Animal.gd" id="1_yvsqr"]
+[ext_resource type="Material" uid="uid://clqq3l4q0yiqb" path="res://Animal/assets/eyeball.tres" id="2_w71v0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_oeayj"]
+size = Vector3(1, 1, 1.0194092)
+
+[sub_resource type="BoxMesh" id="BoxMesh_acg4n"]
+size = Vector3(0.10498047, 0.7241211, 0.20800781)
+
+[sub_resource type="SphereMesh" id="SphereMesh_3f26c"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="SphereMesh" id="SphereMesh_oeayj"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_acg4n"]
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.03
+
+[node name="Animal" type="Node3D" unique_id=1343002232]
+script = ExtResource("1_yvsqr")
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=1712922423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013870597, 0.9292419, 0.00970459)
+mesh = SubResource("BoxMesh_oeayj")
+
+[node name="EarR" type="MeshInstance3D" parent="Body" unique_id=805726646]
+transform = Transform3D(0.9280888, -0.35081366, -0.124823414, 0.35357898, 0.93540466, 2.3282067e-10, 0.116760395, -0.044134937, 0.9921789, -0.5477703, 0.8008218, -0.32053804)
+mesh = SubResource("BoxMesh_acg4n")
+
+[node name="EarL" type="MeshInstance3D" parent="Body" unique_id=1818841429]
+transform = Transform3D(-0.740256, 0.6529164, -0.16037795, 0.6614791, 0.749964, 3.7252903e-09, 0.12027764, -0.10608663, -0.98705566, 0.46184832, 0.64688754, -0.36633313)
+mesh = SubResource("BoxMesh_acg4n")
+skeleton = NodePath("../EarR")
+
+[node name="Tail" type="MeshInstance3D" parent="Body" unique_id=311288243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.080406904, 0.16763389, 0.7130939)
+mesh = SubResource("SphereMesh_3f26c")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Body" unique_id=1189384149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35720682, 0.19233406, -0.5018687)
+material_override = ExtResource("2_w71v0")
+mesh = SubResource("SphereMesh_oeayj")
+skeleton = NodePath("../Tail")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Body" unique_id=1753837885]
+transform = Transform3D(1, 0, 0, 0, 0.93392646, 0.35746548, 0, -0.35746548, 0.93392646, -0.3043326, 0.1771177, -0.4911393)
+material_override = SubResource("StandardMaterial3D_acg4n")
+material_overlay = ExtResource("2_w71v0")
+mesh = SubResource("SphereMesh_oeayj")
+skeleton = NodePath("../Tail")
