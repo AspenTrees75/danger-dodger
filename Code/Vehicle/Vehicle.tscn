@@ -8,23 +8,28 @@ albedo_color = Color(1, 0, 0.13725491, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_oeayj"]
 size = Vector3(0.66503906, 0.8364258, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrohu"]
+albedo_color = Color(0, 0, 0, 1)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_oeayj"]
 top_radius = 0.1
 bottom_radius = 0.1
-height = 0.50512695
+height = 0.69921875
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_25uyk"]
+albedo_color = Color(0, 0, 0, 1)
 
 [node name="Vehicle" type="Node3D" unique_id=1593780182]
 script = ExtResource("1_25uyk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=563592470]
+[node name="Body" type="MeshInstance3D" parent="." unique_id=563592470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11566162, 0.5323113, 0)
 material_override = SubResource("StandardMaterial3D_prjim")
 mesh = SubResource("BoxMesh_oeayj")
 
 [node name="wheel1" type="MeshInstance3D" parent="." unique_id=525569009]
 transform = Transform3D(0.006006624, 0.99997944, -0.0022439621, -0.9973024, 0.005826347, -0.07317123, -0.07315665, 0.0026774213, 0.9973169, -0.09518334, 0.027025463, -0.37851235)
+material_override = SubResource("StandardMaterial3D_mrohu")
 mesh = SubResource("CylinderMesh_oeayj")
 
 [node name="wheel2" type="MeshInstance3D" parent="." unique_id=184512531]
