@@ -56,6 +56,7 @@ func _process(delta: float) -> void:
 	# Resting
 	else:
 		weight = 1.0
+		current_spot = next_spot
 		
 	print(weight)
 	
