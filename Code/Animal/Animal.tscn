@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cld86snfb212r" path="res://Animal/Animal.gd" id="1_yvsqr"]
 [ext_resource type="Material" uid="uid://clqq3l4q0yiqb" path="res://Animal/assets/eyeball.tres" id="2_w71v0"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_oeayj"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_oeayj"]
 size = Vector3(1, 1, 1.0194092)
 
@@ -27,8 +29,12 @@ albedo_color = Color(0.7372549, 0.2627451, 0.29803923, 1)
 [sub_resource type="PrismMesh" id="PrismMesh_oeayj"]
 size = Vector3(0.4, 0.4, 0.4)
 
-[node name="Animal" type="Node3D" unique_id=1343002232]
+[node name="Animal" type="Area3D" unique_id=1525549863]
 script = ExtResource("1_yvsqr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1643721518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94335914, 0)
+shape = SubResource("BoxShape3D_oeayj")
 
 [node name="Graphics" type="Node3D" parent="." unique_id=2046982673]
 

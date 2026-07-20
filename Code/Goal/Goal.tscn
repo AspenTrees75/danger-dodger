@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c4v0peqkg130j"]
+
+[ext_resource type="Script" uid="uid://0yhi8snlp42x" path="res://Goal/Goal.gd" id="1_prjlw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oeayj"]
+size = Vector3(0.8, 1, 0.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_oeayj"]
+size = Vector3(1, 0.10888672, 1)
+
+[node name="Goal" type="Area3D" unique_id=230854485]
+script = ExtResource("1_prjlw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1278177328]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+shape = SubResource("BoxShape3D_oeayj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=2007865275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44555664, 0)
+mesh = SubResource("BoxMesh_oeayj")

@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dkvdtdch46qd1" path="res://Vehicle/Vehicle.gd" id="1_25uyk"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_oeayj"]
+size = Vector3(0.6791382, 0.8319092, 1.0493164)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prjim"]
 albedo_color = Color(1, 0, 0.13725491, 1)
 
@@ -19,20 +22,27 @@ height = 0.69921875
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_25uyk"]
 albedo_color = Color(0, 0, 0, 1)
 
-[node name="Vehicle" type="Node3D" unique_id=1593780182]
+[node name="Vehicle" type="Area3D" unique_id=1952496809]
 script = ExtResource("1_25uyk")
 
-[node name="Body" type="MeshInstance3D" parent="." unique_id=563592470]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=292369386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104531765, 0.56198186, -0.005312443)
+shape = SubResource("BoxShape3D_oeayj")
+
+[node name="Graphics" type="Node3D" parent="." unique_id=1593780182]
+metadata/_edit_group_ = true
+
+[node name="Body" type="MeshInstance3D" parent="Graphics" unique_id=563592470]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11566162, 0.5323113, 0)
 material_override = SubResource("StandardMaterial3D_prjim")
 mesh = SubResource("BoxMesh_oeayj")
 
-[node name="wheel1" type="MeshInstance3D" parent="." unique_id=525569009]
+[node name="wheel1" type="MeshInstance3D" parent="Graphics" unique_id=525569009]
 transform = Transform3D(0.006006624, 0.99997944, -0.0022439621, -0.9973024, 0.005826347, -0.07317123, -0.07315665, 0.0026774213, 0.9973169, -0.09518334, 0.027025463, -0.37851235)
 material_override = SubResource("StandardMaterial3D_mrohu")
 mesh = SubResource("CylinderMesh_oeayj")
 
-[node name="wheel2" type="MeshInstance3D" parent="." unique_id=184512531]
+[node name="wheel2" type="MeshInstance3D" parent="Graphics" unique_id=184512531]
 transform = Transform3D(-4.359306e-08, 1, -3.2141196e-09, -0.997293, -4.371139e-08, -0.07353049, -0.07353049, 0, 0.997293, -0.14775175, -0.028871845, 0.39158848)
 material_override = SubResource("StandardMaterial3D_25uyk")
 mesh = SubResource("CylinderMesh_oeayj")

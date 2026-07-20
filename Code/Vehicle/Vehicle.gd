@@ -1,4 +1,4 @@
-extends Node3D
+extends Area3D
 class_name Vehicle
 
 var speed = 3.0 #mps
