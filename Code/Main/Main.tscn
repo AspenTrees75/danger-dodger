@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b3x2ya4csyglj" path="res://Animal/Animal.tscn" id="2_83ytx"]
 [ext_resource type="PackedScene" uid="uid://berl535au27hs" path="res://Lane/Lane.tscn" id="3_amygn"]
 [ext_resource type="PackedScene" uid="uid://d10bdq3u7df63" path="res://Vehicle/Vehicle.tscn" id="4_ps1la"]
+[ext_resource type="PackedScene" uid="uid://dkrcw84mho1yp" path="res://PauseMenu/PauseMenu.tscn" id="6_u2i7p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_83ytx"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,22 +23,6 @@ albedo_color = Color(0.1882353, 0.40392157, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_83ytx"]
 size = Vector2(50, 50)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6aewd"]
-content_margin_left = 20.0
-content_margin_top = 20.0
-content_margin_right = 20.0
-content_margin_bottom = 20.0
-bg_color = Color(0.18431373, 0.69803923, 0.40784314, 1)
-corner_radius_top_left = 13
-corner_radius_top_right = 13
-corner_radius_bottom_right = 13
-corner_radius_bottom_left = 13
-
-[sub_resource type="LabelSettings" id="LabelSettings_6aewd"]
-font_size = 20
-outline_size = 10
-outline_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node" unique_id=1391425956]
 script = ExtResource("1_83ytx")
@@ -93,26 +78,5 @@ transform = Transform3D(0.013962062, 0, 0.9999025, 0, 1, 0, -0.9999025, 0, 0.013
 [node name="Vehicle" parent="Lane" unique_id=1593780182 instance=ExtResource("4_ps1la")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 4.7683713e-07, 0.36070037, -0.007894039)
 
-[node name="Pause Menu" type="PanelContainer" parent="." unique_id=1634764949]
-offset_left = 454.42676
-offset_top = 267.0
-offset_right = 656.07855
-offset_bottom = 381.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_6aewd")
-metadata/_edit_group_ = true
-
-[node name="VBox" type="VBoxContainer" parent="Pause Menu" unique_id=1616774144]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="Pause Menu/VBox" unique_id=1609613658]
-layout_mode = 2
-text = "Danger Dodger"
-label_settings = SubResource("LabelSettings_6aewd")
-
-[node name="PlayButton" type="Button" parent="Pause Menu/VBox" unique_id=924127847]
-layout_mode = 2
-text = "Play"
-
-[node name="QuitButton" type="Button" parent="Pause Menu/VBox" unique_id=443797233]
-layout_mode = 2
-text = "Quit"
+[node name="Pause Menu" parent="." unique_id=1417007537 instance=ExtResource("6_u2i7p")]
+visible = true

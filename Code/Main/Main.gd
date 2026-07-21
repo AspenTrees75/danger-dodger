@@ -1,12 +1,25 @@
 extends Node
 class_name Main
 
-@onready var quit_button: Button = $"Pause Menu/VBox/QuitButton"
+@onready var pause_menu: PanelContainer = $"Pause Menu"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	quit_button.pressed.connect(on_quit_pressed)
+	pause_menu.hide() #fixme
+	
 
-func on_quit_pressed():
-	get_tree().quit()
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		toggle_pause()
+		
+		
+
+	
+
+	
+	
+	
+	
+	
 	
