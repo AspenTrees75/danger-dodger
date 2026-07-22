@@ -20,10 +20,13 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="Pause Menu" type="PanelContainer" unique_id=1417007537]
 process_mode = 3
-offset_left = 454.42676
-offset_top = 267.0
-offset_right = 656.07855
-offset_bottom = 381.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 494.0
+offset_top = 259.0
+offset_right = -456.3482
+offset_bottom = -251.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_6aewd")
 script = ExtResource("1_egqmv")
 metadata/_edit_group_ = true

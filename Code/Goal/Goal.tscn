@@ -1,12 +1,37 @@
 [gd_scene format=3 uid="uid://c4v0peqkg130j"]
 
 [ext_resource type="Script" uid="uid://0yhi8snlp42x" path="res://Goal/Goal.gd" id="1_prjlw"]
+[ext_resource type="Material" uid="uid://clqq3l4q0yiqb" path="res://Animal/assets/eyeball.tres" id="2_mbkht"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oeayj"]
 size = Vector3(0.8, 1, 0.8)
 
 [sub_resource type="BoxMesh" id="BoxMesh_oeayj"]
 size = Vector3(1, 0.10888672, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kaxx0"]
+size = Vector3(1, 1, 1.0194092)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4rf3h"]
+size = Vector3(0.10498047, 0.7241211, 0.20800781)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0wg2r"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="SphereMesh" id="SphereMesh_3vcrj"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbagr"]
+albedo_color = Color(0, 0, 0, 1)
+roughness = 0.03
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7qlcw"]
+albedo_color = Color(0.7372549, 0.2627451, 0.29803923, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_rmyke"]
+size = Vector3(0.4, 0.4, 0.4)
 
 [node name="Goal" type="Area3D" unique_id=230854485]
 script = ExtResource("1_prjlw")
@@ -15,6 +40,47 @@ script = ExtResource("1_prjlw")
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 shape = SubResource("BoxShape3D_oeayj")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=2007865275]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44555664, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2007865275]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, -0.3564453, 0)
 mesh = SubResource("BoxMesh_oeayj")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="AnimalGraphics" type="Node3D" parent="." unique_id=536341555]
+transform = Transform3D(-0.8, 0, 6.9938224e-08, 0, 0.8, 0, -6.9938224e-08, 0, -0.8, 0, -0.3564453, 0)
+
+[node name="Body" type="MeshInstance3D" parent="AnimalGraphics" unique_id=2009904369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0013870597, 0.9292419, 0.00970459)
+mesh = SubResource("BoxMesh_kaxx0")
+skeleton = NodePath("../../MeshInstance3D")
+metadata/_edit_group_ = true
+
+[node name="EarR" type="MeshInstance3D" parent="AnimalGraphics/Body" unique_id=280590988]
+transform = Transform3D(0.9280888, -0.35081366, -0.124823414, 0.35357898, 0.93540466, 2.3282067e-10, 0.116760395, -0.044134937, 0.9921789, -0.5477703, 0.8008218, -0.32053804)
+mesh = SubResource("BoxMesh_4rf3h")
+
+[node name="EarL" type="MeshInstance3D" parent="AnimalGraphics/Body" unique_id=214731121]
+transform = Transform3D(-0.740256, 0.6529164, -0.16037795, 0.6614791, 0.749964, 3.7252903e-09, 0.12027764, -0.10608663, -0.98705566, 0.46184832, 0.64688754, -0.36633313)
+mesh = SubResource("BoxMesh_4rf3h")
+skeleton = NodePath("../EarR")
+
+[node name="Tail" type="MeshInstance3D" parent="AnimalGraphics/Body" unique_id=721498317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.080406904, 0.16763389, 0.7130939)
+mesh = SubResource("SphereMesh_0wg2r")
+
+[node name="EyeL" type="MeshInstance3D" parent="AnimalGraphics/Body" unique_id=1349474542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35720682, 0.19233406, -0.5018687)
+material_override = ExtResource("2_mbkht")
+mesh = SubResource("SphereMesh_3vcrj")
+skeleton = NodePath("../Tail")
+
+[node name="EyeR" type="MeshInstance3D" parent="AnimalGraphics/Body" unique_id=1032814713]
+transform = Transform3D(1, 0, 0, 0, 0.93392646, 0.35746548, 0, -0.35746548, 0.93392646, -0.3043326, 0.1771177, -0.4911393)
+material_override = SubResource("StandardMaterial3D_hbagr")
+material_overlay = ExtResource("2_mbkht")
+mesh = SubResource("SphereMesh_3vcrj")
+skeleton = NodePath("../Tail")
+
+[node name="Nose" type="MeshInstance3D" parent="AnimalGraphics/Body" unique_id=2006842430]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0, -0.14810348, -0.36615753)
+material_override = SubResource("StandardMaterial3D_7qlcw")
+mesh = SubResource("PrismMesh_rmyke")

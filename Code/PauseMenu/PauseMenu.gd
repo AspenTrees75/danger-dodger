@@ -1,5 +1,7 @@
 extends PanelContainer
 class_name PauseMenu
+## RootNode is Processing: "Always"
+
 
 @onready var title: Label = $VBox/Title
 @onready var play_button: Button = $VBox/PlayButton
@@ -7,24 +9,33 @@ class_name PauseMenu
 
 
 func _ready() -> void:
+	hide() # fixme: how do we wish to begin?
 	play_button.pressed.connect(on_play_button_pressed)
 	quit_button.pressed.connect(on_quit_button_pressed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("pause"):
+		toggle_pause()
 	
 	
 func toggle_pause():
 	# Fixme: not finished
+	title.text = "Paused"
 	if get_tree().paused:
-		pause_menu.hide()
+		hide()
 		get_tree().paused = false
 	else:
-		.show()
+		show()
 		get_tree().paused = true	
 
+func game_over(message: String):
+	title.text = message
+	play_button.text = "Play Again?"
+	show()
+
+#Callback functions
 func on_play_button_pressed():
 	get_tree().paused = false
 	hide()

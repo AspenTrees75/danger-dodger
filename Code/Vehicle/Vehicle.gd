@@ -1,7 +1,7 @@
 extends Area3D
 class_name Vehicle
 
-var speed = 3.0 #mps
+var speed = 5.0 #mps
 # limit of travel
 var kill_distance: float = 10.0
 

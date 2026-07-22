@@ -32,7 +32,7 @@ size = Vector3(0.4, 0.4, 0.4)
 [node name="Animal" type="Area3D" unique_id=1525549863]
 script = ExtResource("1_yvsqr")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1643721518]
+[node name="Colider" type="CollisionShape3D" parent="." unique_id=1643721518]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.94335914, 0)
 shape = SubResource("BoxShape3D_oeayj")
 
@@ -74,3 +74,21 @@ skeleton = NodePath("../Tail")
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, 0, -0.14810348, -0.36615753)
 material_override = SubResource("StandardMaterial3D_x1lra")
 mesh = SubResource("PrismMesh_oeayj")
+
+[node name="UI" type="PanelContainer" parent="." unique_id=1198094944]
+offset_left = 84.0
+offset_top = 44.0
+offset_right = 290.0
+offset_bottom = 155.0
+metadata/_edit_group_ = true
+
+[node name="VBox" type="VBoxContainer" parent="UI" unique_id=1313927433]
+layout_mode = 2
+
+[node name="GoalsUI" type="Label" parent="UI/VBox" unique_id=916530200]
+layout_mode = 2
+text = "Goals Remaining: "
+
+[node name="LivesUI" type="Label" parent="UI/VBox" unique_id=399700346]
+layout_mode = 2
+text = "Lives: 3"
