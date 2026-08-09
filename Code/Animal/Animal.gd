@@ -13,7 +13,8 @@ class_name Animal ## Main class of player character
 # lerp(position, next_spot, 0.25)
 
 @export var lives: int = 3 # lives remaining
-var main: Main
+@export var level: Level
+
 var spawning_point: Vector3
 var leap_distance: float = 1.0
 #var weight: float = 1.0 # 0-1
@@ -26,11 +27,13 @@ var leap_distance: float = 1.0
 func _ready() -> void:
 	#signal break
 	area_entered.connect(on_entered)
-	spawning_point = Vector3.ZERO
+	spawning_point = Vector3(0,0,7)
 	
 	#current_spot = position
 	#next_spot = position
-	main = get_parent()
+	level = get_parent() # use reference vars
+	
+	
 	update_lives(0)
 	
 
@@ -99,7 +102,7 @@ func on_entered(other_area) -> void:
 		if other_area is Goal:
 			respawn()
 			other_area.set_occupied()
-			main.check_game_over()
+			level.check_level_over()
 			print("Goal!")
 			
 		if other_area is Vehicle:
