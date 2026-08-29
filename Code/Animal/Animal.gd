@@ -15,6 +15,10 @@ class_name Animal ## Main class of player character
 @export var lives: int = 3 # lives remaining
 var level: Level
 
+
+
+#var is_riding: bool = false
+var riding: Vessel = null
 var spawning_point: Vector3
 var leap_distance: float = 1.0
 #var weight: float = 1.0 # 0-1
@@ -83,6 +87,10 @@ func _process(delta: float) -> void:
 	#if position == spawning_point:
 		#graphics.show()
 		#colider.disabled = false
+
+	if riding != null:
+		position += riding.global_position
+
 func update_lives(delta_lives: int):
 	lives += delta_lives
 	lives_ui.text = "Lives Remaining: " + str(lives)
@@ -110,10 +118,19 @@ func on_entered(other_area) -> void:
 			update_lives(-1)
 			respawn() 
 			
+		if other_area is Vessel:
+			print("taking a ride")
+			if riding == null:
+				riding = other_area
+			
+			
 		if other_area is Waterway:
-			print("Drowned.")
-			update_lives(-1)
-			respawn()
+			if riding == null:
+				print("Drowned.")
+				update_lives(-1)
+				respawn()
+			
+			
 		
 	
 	

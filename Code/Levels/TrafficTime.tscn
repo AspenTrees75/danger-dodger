@@ -2,8 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c4v0peqkg130j" path="res://Goal/Goal.tscn" id="1_de4at"]
 [ext_resource type="Script" uid="uid://d3d2r0u0p7bod" path="res://Levels/Level.gd" id="1_tgin1"]
-[ext_resource type="PackedScene" uid="uid://berl535au27hs" path="res://Lane/Lane.tscn" id="2_tgin1"]
-[ext_resource type="PackedScene" uid="uid://cwqeu7k1fculu" path="res://Waterway/Waterway.tscn" id="2_ye6de"]
+[ext_resource type="PackedScene" uid="uid://berl535au27hs" path="res://Lane/Road/Road.tscn" id="2_tgin1"]
 [ext_resource type="PackedScene" uid="uid://d10bdq3u7df63" path="res://Traffic/Vehicle/Vehicle.tscn" id="3_ye6de"]
 [ext_resource type="PackedScene" uid="uid://b3x2ya4csyglj" path="res://Animal/Animal.tscn" id="4_8b8hp"]
 
@@ -26,9 +25,6 @@ size = Vector2(50, 50)
 
 [node name="TrafficTime" type="Node3D" unique_id=540778381]
 script = ExtResource("1_tgin1")
-
-[node name="Waterway" parent="." unique_id=219898260 instance=ExtResource("2_ye6de")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.3113416e-07, 0, -3)
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=461314144]
 transform = Transform3D(-0.93027025, -0.36669227, -0.011584042, 0.21882948, -0.57994324, 0.78471625, -0.29446748, 0.7274631, 0.619747, -6.3133135, 7.9893856, 12.333778)

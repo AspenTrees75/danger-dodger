@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ds37jvsss8s4s"]
+
+[ext_resource type="Script" uid="uid://csqecs5bgss6i" path="res://Traffic/Vessel/Vessel.gd" id="1_8kqfn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_oeayj"]
+radius = 0.45
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oeayj"]
+top_radius = 0.45
+bottom_radius = 0.45
+
+[node name="Vessel" type="Area3D" unique_id=1544035052]
+script = ExtResource("1_8kqfn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1394554172]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("CylinderShape3D_oeayj")
+
+[node name="Graphics" type="MeshInstance3D" parent="." unique_id=1079973004]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_oeayj")

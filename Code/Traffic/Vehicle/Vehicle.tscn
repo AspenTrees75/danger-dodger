@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d10bdq3u7df63"]
 
-[ext_resource type="Script" uid="uid://dkvdtdch46qd1" path="res://Traffic/Vehicle/Vehicle.gd" id="1_25uyk"]
+[ext_resource type="Script" uid="uid://dkvdtdch46qd1" path="res://Traffic/Vehicle/Vehicle.gd" id="1_ylglt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oeayj"]
 size = Vector3(0.6791382, 0.8319092, 1.0493164)
@@ -23,7 +23,7 @@ height = 0.69921875
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="Vehicle" type="Area3D" unique_id=1952496809]
-script = ExtResource("1_25uyk")
+script = ExtResource("1_ylglt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=292369386]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104531765, 0.56198186, -0.005312443)
