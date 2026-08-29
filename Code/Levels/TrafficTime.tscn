@@ -3,19 +3,20 @@
 [ext_resource type="PackedScene" uid="uid://c4v0peqkg130j" path="res://Goal/Goal.tscn" id="1_de4at"]
 [ext_resource type="Script" uid="uid://d3d2r0u0p7bod" path="res://Levels/Level.gd" id="1_tgin1"]
 [ext_resource type="PackedScene" uid="uid://berl535au27hs" path="res://Lane/Lane.tscn" id="2_tgin1"]
-[ext_resource type="PackedScene" uid="uid://d10bdq3u7df63" path="res://Vehicle/Vehicle.tscn" id="3_ye6de"]
+[ext_resource type="PackedScene" uid="uid://cwqeu7k1fculu" path="res://Waterway/Waterway.tscn" id="2_ye6de"]
+[ext_resource type="PackedScene" uid="uid://d10bdq3u7df63" path="res://Traffic/Vehicle/Vehicle.tscn" id="3_ye6de"]
 [ext_resource type="PackedScene" uid="uid://b3x2ya4csyglj" path="res://Animal/Animal.tscn" id="4_8b8hp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tgin1"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_ye6de"]
+[sub_resource type="Sky" id="Sky_tgin1"]
 sky_material = SubResource("ProceduralSkyMaterial_tgin1")
 
 [sub_resource type="Environment" id="Environment_8b8hp"]
 background_mode = 2
-sky = SubResource("Sky_ye6de")
+sky = SubResource("Sky_tgin1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hg6v0"]
 albedo_color = Color(0.1882353, 0.40392157, 0, 1)
@@ -26,6 +27,9 @@ size = Vector2(50, 50)
 [node name="TrafficTime" type="Node3D" unique_id=540778381]
 script = ExtResource("1_tgin1")
 
+[node name="Waterway" parent="." unique_id=219898260 instance=ExtResource("2_ye6de")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.3113416e-07, 0, -3)
+
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=461314144]
 transform = Transform3D(-0.93027025, -0.36669227, -0.011584042, 0.21882948, -0.57994324, 0.78471625, -0.29446748, 0.7274631, 0.619747, -6.3133135, 7.9893856, 12.333778)
 shadow_enabled = true
@@ -33,21 +37,21 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=58064224]
 environment = SubResource("Environment_8b8hp")
 
-[node name="Goals" type="Node3D" parent="." unique_id=1423118067]
+[node name="GoalsNode" type="Node3D" parent="." unique_id=1423118067]
 
-[node name="Goal0" parent="Goals" unique_id=230854485 instance=ExtResource("1_de4at")]
+[node name="Goal0" parent="GoalsNode" unique_id=230854485 instance=ExtResource("1_de4at")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37480533, -9.560567)
 
-[node name="Goal1" parent="Goals" unique_id=1692167050 instance=ExtResource("1_de4at")]
+[node name="Goal1" parent="GoalsNode" unique_id=1692167050 instance=ExtResource("1_de4at")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.37480533, -9.560567)
 
-[node name="Goal2" parent="Goals" unique_id=1482245727 instance=ExtResource("1_de4at")]
+[node name="Goal2" parent="GoalsNode" unique_id=1482245727 instance=ExtResource("1_de4at")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.37480533, -9.560567)
 
-[node name="Goal3" parent="Goals" unique_id=1113890320 instance=ExtResource("1_de4at")]
+[node name="Goal3" parent="GoalsNode" unique_id=1113890320 instance=ExtResource("1_de4at")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.37480533, -9.560567)
 
-[node name="Goal4" parent="Goals" unique_id=1244359600 instance=ExtResource("1_de4at")]
+[node name="Goal4" parent="GoalsNode" unique_id=1244359600 instance=ExtResource("1_de4at")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.37480533, -9.560567)
 
 [node name="Lane" parent="." unique_id=434455322 instance=ExtResource("2_tgin1")]
@@ -64,7 +68,7 @@ skeleton = NodePath("")
 metadata/_edit_lock_ = true
 
 [node name="Animal" parent="." unique_id=1525549863 instance=ExtResource("4_8b8hp")]
-lives = null
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4311167, 0)
 
 [node name="Rig" type="Node3D" parent="Animal" unique_id=402868491]
 transform = Transform3D(0.9889211, 0.12832525, 0.07461647, -0.14812674, 0.8858243, 0.43974286, -0.009667002, -0.44592366, 0.8950187, 0, 0, 0)

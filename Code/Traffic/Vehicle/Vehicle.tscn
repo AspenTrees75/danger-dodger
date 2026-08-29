@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d10bdq3u7df63"]
 
-[ext_resource type="Script" uid="uid://dkvdtdch46qd1" path="res://Vehicle/Vehicle.gd" id="1_25uyk"]
+[ext_resource type="Script" uid="uid://dkvdtdch46qd1" path="res://Traffic/Vehicle/Vehicle.gd" id="1_25uyk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oeayj"]
 size = Vector3(0.6791382, 0.8319092, 1.0493164)

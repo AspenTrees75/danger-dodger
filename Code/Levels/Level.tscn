@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://d26k2kxe4mwal"]
+
+[ext_resource type="Script" uid="uid://d3d2r0u0p7bod" path="res://Levels/Level.gd" id="1_286st"]
+[ext_resource type="PackedScene" uid="uid://c4v0peqkg130j" path="res://Goal/Goal.tscn" id="2_q1ycg"]
+[ext_resource type="PackedScene" uid="uid://b3x2ya4csyglj" path="res://Animal/Animal.tscn" id="5_ht8ui"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tgin1"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_tgin1"]
+sky_material = SubResource("ProceduralSkyMaterial_tgin1")
+
+[sub_resource type="Environment" id="Environment_8b8hp"]
+background_mode = 2
+sky = SubResource("Sky_tgin1")
+
+[node name="TrafficTime" type="Node3D" unique_id=540778381]
+script = ExtResource("1_286st")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=461314144]
+transform = Transform3D(-0.93027025, -0.36669227, -0.011584042, 0.21882948, -0.57994324, 0.78471625, -0.29446748, 0.7274631, 0.619747, -6.3133135, 7.9893856, 12.333778)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=58064224]
+environment = SubResource("Environment_8b8hp")
+
+[node name="Animal" parent="." unique_id=1525549863 instance=ExtResource("5_ht8ui")]
+
+[node name="Rig" type="Node3D" parent="Animal" unique_id=402868491]
+transform = Transform3D(0.9889211, 0.12832525, 0.07461647, -0.14812674, 0.8858243, 0.43974286, -0.009667002, -0.44592366, 0.8950187, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Animal/Rig" unique_id=983867102]
+transform = Transform3D(0.9863481, -0.06272647, -0.15225893, 0.09998004, 0.96280134, 0.25103313, 0.1308487, -0.26282898, 0.9559287, -2.72509, 3.8491673, 17.407103)
+fov = 35.059807
+
+[node name="GoalsNode" type="Node3D" parent="." unique_id=1423118067]
+
+[node name="Goal0" parent="GoalsNode" unique_id=230854485 instance=ExtResource("2_q1ycg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37480533, -9.560567)

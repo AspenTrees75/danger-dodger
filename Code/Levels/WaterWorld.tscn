@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b3x2ya4csyglj" path="res://Animal/Animal.tscn" id="1_rwfof"]
 [ext_resource type="PackedScene" uid="uid://c4v0peqkg130j" path="res://Goal/Goal.tscn" id="2_5yycp"]
 [ext_resource type="PackedScene" uid="uid://berl535au27hs" path="res://Lane/Lane.tscn" id="3_7touw"]
-[ext_resource type="PackedScene" uid="uid://d10bdq3u7df63" path="res://Vehicle/Vehicle.tscn" id="4_3qy7e"]
+[ext_resource type="PackedScene" uid="uid://d10bdq3u7df63" path="res://Traffic/Vehicle/Vehicle.tscn" id="4_3qy7e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rwfof"]
 sky_horizon_color = Color(0.63858324, 0.68032163, 0.6904723, 1)
@@ -44,21 +44,21 @@ transform = Transform3D(0.9889211, 0.12832525, 0.07461647, -0.14812674, 0.885824
 transform = Transform3D(0.9863481, -0.06272647, -0.15225893, 0.09998004, 0.96280134, 0.25103313, 0.1308487, -0.26282898, 0.9559287, -2.72509, 3.8491673, 17.407103)
 fov = 35.059807
 
-[node name="Goals" type="Node3D" parent="." unique_id=869730615]
+[node name="GoalsNode" type="Node3D" parent="." unique_id=869730615]
 
-[node name="Goal0" parent="Goals" unique_id=230854485 instance=ExtResource("2_5yycp")]
+[node name="Goal0" parent="GoalsNode" unique_id=230854485 instance=ExtResource("2_5yycp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37480533, -9.560567)
 
-[node name="Goal1" parent="Goals" unique_id=1147098970 instance=ExtResource("2_5yycp")]
+[node name="Goal1" parent="GoalsNode" unique_id=1147098970 instance=ExtResource("2_5yycp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.37480533, -9.560567)
 
-[node name="Goal2" parent="Goals" unique_id=2057205228 instance=ExtResource("2_5yycp")]
+[node name="Goal2" parent="GoalsNode" unique_id=2057205228 instance=ExtResource("2_5yycp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.37480533, -9.560567)
 
-[node name="Goal3" parent="Goals" unique_id=247069857 instance=ExtResource("2_5yycp")]
+[node name="Goal3" parent="GoalsNode" unique_id=247069857 instance=ExtResource("2_5yycp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.37480533, -9.560567)
 
-[node name="Goal4" parent="Goals" unique_id=1918830198 instance=ExtResource("2_5yycp")]
+[node name="Goal4" parent="GoalsNode" unique_id=1918830198 instance=ExtResource("2_5yycp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.37480533, -9.560567)
 
 [node name="Lane" parent="." unique_id=434455322 instance=ExtResource("3_7touw")]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cwqeu7k1fculu"]
+
+[ext_resource type="Script" uid="uid://cwqtxrrs1h1rr" path="res://Waterway/Waterway.gd" id="1_j7ye3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j7ye3"]
+albedo_color = Color(0.05882353, 0.24705882, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gpvle"]
+size = Vector2(0.9, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oeayj"]
+size = Vector3(0.9, 0.5, 20)
+
+[node name="Waterway" type="Area3D" unique_id=219898260]
+script = ExtResource("1_j7ye3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=818803222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2123785, 0)
+material_override = SubResource("StandardMaterial3D_j7ye3")
+mesh = SubResource("PlaneMesh_gpvle")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=678629432]
+shape = SubResource("BoxShape3D_oeayj")

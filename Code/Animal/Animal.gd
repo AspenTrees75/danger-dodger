@@ -13,7 +13,7 @@ class_name Animal ## Main class of player character
 # lerp(position, next_spot, 0.25)
 
 @export var lives: int = 3 # lives remaining
-@export var level: Level
+var level: Level
 
 var spawning_point: Vector3
 var leap_distance: float = 1.0
@@ -110,8 +110,10 @@ func on_entered(other_area) -> void:
 			update_lives(-1)
 			respawn() 
 			
-	
-		
+		if other_area is Waterway:
+			print("Drowned.")
+			update_lives(-1)
+			respawn()
 		
 	
 	
