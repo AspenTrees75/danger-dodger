@@ -20,11 +20,6 @@ func _ready() -> void:
 	goals.append(goal_4)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
-
 func check_level_over():
 	print("Checking level over")
 	for goal in goals:

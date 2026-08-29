@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://furn1mo8sqcv"]
 
+[ext_resource type="Script" uid="uid://d3d2r0u0p7bod" path="res://Levels/Level.gd" id="1_5yycp"]
 [ext_resource type="PackedScene" uid="uid://b3x2ya4csyglj" path="res://Animal/Animal.tscn" id="1_rwfof"]
 [ext_resource type="PackedScene" uid="uid://c4v0peqkg130j" path="res://Goal/Goal.tscn" id="2_5yycp"]
 [ext_resource type="PackedScene" uid="uid://berl535au27hs" path="res://Lane/Lane.tscn" id="3_7touw"]
@@ -21,9 +22,10 @@ sky = SubResource("Sky_5yycp")
 albedo_color = Color(0.1882353, 0.40392157, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5dqy1"]
-size = Vector2(50, 50)
+size = Vector2(25, 50)
 
 [node name="WaterWorld" type="Node3D" unique_id=631055588]
+script = ExtResource("1_5yycp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1901049316]
 environment = SubResource("Environment_7touw")
@@ -88,4 +90,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17693472, -0.038639545, -0
 material_override = SubResource("StandardMaterial3D_usc3h")
 mesh = SubResource("PlaneMesh_5dqy1")
 skeleton = NodePath("")
-metadata/_edit_lock_ = true

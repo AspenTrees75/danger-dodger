@@ -6,6 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://berl535au27hs" path="res://Lane/Lane.tscn" id="4_612c4"]
 [ext_resource type="PackedScene" uid="uid://d10bdq3u7df63" path="res://Vehicle/Vehicle.tscn" id="5_s5kmm"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_g4bax"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ye6de"]
+sky_material = SubResource("ProceduralSkyMaterial_g4bax")
+
+[sub_resource type="Environment" id="Environment_e4jwm"]
+background_mode = 2
+sky = SubResource("Sky_ye6de")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6y4n"]
 albedo_color = Color(0.1882353, 0.40392157, 0, 1)
 
@@ -14,6 +25,13 @@ size = Vector2(50, 50)
 
 [node name="SkyWorld" type="Node3D" unique_id=1496990779]
 script = ExtResource("1_84qyg")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1064923028]
+transform = Transform3D(-0.93027025, -0.36669227, -0.011584039, 0.21882948, -0.57994324, 0.78471625, -0.29446748, 0.7274631, 0.619747, -6.3133135, 7.9893856, 12.333778)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=608514630]
+environment = SubResource("Environment_e4jwm")
 
 [node name="Animal" parent="." unique_id=1525549863 instance=ExtResource("2_g4bax")]
 
